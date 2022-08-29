@@ -1,9 +1,14 @@
-const submit = document.getElementById("addToList")
+const submit = document.getElementById("button")
+const toDoList = document.getElementById("list")
 
-submit.addEventListener("submit", addToList)
+submit.addEventListener("click", add)
 
-function addToList(e) {
-    e.preventDefault();
-
-    console.log(1)
+const add = (e) => {
+    e.target.id
+    const newItem = document.getElementById("addToList").value;
+    newItem.createElement("li")
+    li.appendChild(document.createTextNode(newItem))
+    toDoList.appendChild(li)
+    
 }
+console.log(add)
