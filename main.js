@@ -1,15 +1,15 @@
 const input = document.querySelector('input');
 const select = document.querySelector('button');
-const list = document.getElementById('list');
-const li = document.createElement('li');
+
 
 select.addEventListener('click', addItem);
 
 function addItem() {
-    let newLi = document.createTextNode(input.value);
-    li.appendChild(newLi);
-    list.appendChild(li);
-    console.log(list)
+    const list = document.getElementById('list');
+    const inputElement = document.createElement('li')
+    const newLi = document.createTextNode(input.value);
+    inputElement.appendChild(newLi);
+    document.body.insertBefore(inputElement, list)
 }
 
 
