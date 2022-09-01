@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+.line {
+    text-decoration: line-through;
+}
+
+.noline {
+    text-decoration: none;
+}
+
+.button {
+    float: right;
+}
