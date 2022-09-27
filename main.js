@@ -4,6 +4,7 @@ inputButton.addEventListener('click', addItem);
 function addItem() {
     const inputItem = document.getElementById('inputItem');
     const itemText = inputItem.value;
+    inputItem.value = ''
     
     const newItem = createListItem(itemText);
 
@@ -12,23 +13,23 @@ function addItem() {
 }
 
 function createListItem(itemText) {
-    const lineItem = document.createElement('li');
-    lineItem.setAttribute('id', Math.random());
-    lineItem.style = 'list-style-type: none';
+    const listItem = document.createElement('li');
+    listItem.setAttribute('id', Math.random());
+    listItem.style = 'list-style-type: none';
 
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.addEventListener('change', handleCheckBox);
-    lineItem.appendChild(checkBox);
+    listItem.appendChild(checkBox);
     
-    const lineItemText = document.createElement('span');
-    lineItemText.textContent = itemText;
-    lineItemText.className = 'itemText';
-    lineItem.appendChild(lineItemText);
+    const listItemText = document.createElement('span');
+    listItemText.textContent = itemText;
+    listItemText.className = 'itemText';
+    listItem.appendChild(listItemText);
 
     //const lineItemButton = document.createElement('img');
 
-    return lineItem;
+    return listItem;
 }
 
 function handleCheckBox(event) {
