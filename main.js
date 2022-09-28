@@ -27,8 +27,9 @@ function createListItem(itemText) {
     listItemText.className = 'itemText';
     listItem.appendChild(listItemText);
 
-    //const lineItemButton = document.createElement('img');
-
+    const lineItemButton = document.createElement('img');
+    lineItemButton.setAttribute('src', 'images/delete.png');
+    listItem.appendChild(lineItemButton)
     return listItem;
 }
 
