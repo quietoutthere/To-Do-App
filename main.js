@@ -1,17 +1,23 @@
 const inputButton = document.getElementById('inputButton');
+const listItem = document.createElement('li');
+const inputItem = document.getElementById('inputItem');
 inputButton.addEventListener('click', addItem);
+inputItem.addEventListener('keyup', (e) => {
+    e.preventDefault();
+    if(e.keyCode === 13){
+        addItem();
+    }
+});
 
 function addItem() {
-    const inputItem = document.getElementById('inputItem');
     const itemText = inputItem.value;
     inputItem.value = ''
     const newItem = createListItem(itemText);
     const list = document.getElementById('list');
-    list.appendChild(newItem)
+    list.appendChild(newItem);
 }
 
 function createListItem(itemText) {
-    const listItem = document.createElement('li');
     listItem.setAttribute('id', Math.random());
     listItem.style = 'list-style-type: none';
 
@@ -24,20 +30,22 @@ function createListItem(itemText) {
     listItemText.textContent = itemText;
     listItemText.className = 'itemText';
     listItem.appendChild(listItemText);
+    return listItem;
+}
 
+function addButton() {
     const lineItemButton = document.createElement('img');
     lineItemButton.setAttribute('src', 'images/delete.png');
     lineItemButton.addEventListener('click', removeElement);
     lineItemButton.style.height = '25px'
     listItem.appendChild(lineItemButton)
-    return listItem;
 }
 
 function removeElement(event) {
     event.preventDefault();
     const trash = event.target;
-    trash.parentElement.remove();
-}
+    trash.parentElement.remove()
+   }
 
 function handleCheckBox(event) {
     event.preventDefault();
@@ -45,4 +53,5 @@ function handleCheckBox(event) {
     target.nextSibling.style = target.checked ? 
     'text-decoration: line-through' : 
     'text-decoration: none';
+    addButton();
 }
