@@ -1,13 +1,13 @@
 const inputButton = document.getElementById('inputButton');
 const listItem = document.createElement('li');
 const inputItem = document.getElementById('inputItem');
-inputButton.addEventListener('click', addItem);
-inputItem.addEventListener('keyup', (e) => {
+const form = document.getElementById('form');
+//inputButton.addEventListener('click', addItem);
+
+form.addEventListener('submit', function(e) {
     e.preventDefault();
-    if(e.keyCode === 13){
-        addItem();
-    }
-});
+    addItem();
+})
 
 function addItem() {
     const itemText = inputItem.value;
