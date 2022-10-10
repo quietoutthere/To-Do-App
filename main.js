@@ -1,20 +1,16 @@
-//description: create two todo items and
+// description: add delete button to item
 
-//step 1: create a todo item called 'item 1'
-//EXPECTED: todo item called item 1 shows up on screen
-//ACTUAL: IT WORKS
+// STEP 1: create todo item called 'workout'
+// EXPECTED: 'workout' shows up on screen
+// ACTUAL: IT WORKS
 
-//step 2: create a second todo item called 'item 2'
-//EXPECTED: todo item called item 2 shows up below item 1
-//ACTUAL: IT WORKS
+//STEP 2: click on box and add strikethrough to 'workout'
+// EXPECTED: strikethrough shows up on 'workout'
+// ACTUAL: IT WORKS
 
-//step 3: click on second todo item's checkbox
-//EXPECTED: there should be a line through for item 2, a garbage icon should appear
-//ACTUAL: IT WORKS
-
-//step 4: click on second todo item's garbage icon
-//EXPECTED: second todo item should dissapear
-//ACTUAL: IT DOESN'T WORK; both todo items get deleted
+//STEP 3: have delete button show up when checkbox is clicked
+// EXPECTED: delete button should show up to right of 'workout'
+// ACTUAL: does not show up
 
 const inputButton = document.getElementById('inputButton');
 const inputItem = document.getElementById('inputItem');
@@ -40,7 +36,9 @@ function createListItem(itemText) {
 
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
-    checkBox.addEventListener('change', handleCheckBox);
+    checkBox.addEventListener('change', function(e) {
+        handleCheckBox(e, listItem);
+    });
     listItem.appendChild(checkBox);
     
     const listItemText = document.createElement('span');
@@ -50,13 +48,13 @@ function createListItem(itemText) {
     return listItem;
 }
 
-function addButton() {
+function addButton(li) {
     const listItem = document.createElement('li')
     const lineItemButton = document.createElement('img');
     lineItemButton.setAttribute('src', 'images/delete.png');
     lineItemButton.addEventListener('click', removeElement);
-    lineItemButton.style.height = '25px'
-    listItem.appendChild(lineItemButton)
+    lineItemButton.style.height = '25px';
+    li.appendChild(lineItemButton)
 }
 
 function removeElement(event) {
@@ -65,12 +63,12 @@ function removeElement(event) {
     trash.parentElement.remove()
    }
 
-function handleCheckBox(event) {
+function handleCheckBox(event, li) {
     event.preventDefault();
     const target = event.target;
     target.nextSibling.style = target.checked ? 
     'text-decoration: line-through' : 
     'text-decoration: none';
-    addButton();
+    addButton(li);
 }
 
