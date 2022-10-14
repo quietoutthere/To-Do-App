@@ -1,4 +1,4 @@
-// description: add delete button to item
+// description: remove delete button
 
 // STEP 1: create todo item called 'workout'
 // EXPECTED: 'workout' shows up on screen
@@ -10,7 +10,11 @@
 
 //STEP 3: have delete button show up when checkbox is clicked
 // EXPECTED: delete button should show up to right of 'workout'
-// ACTUAL: does not show up
+// ACTUAL: IT WORKS
+
+//STEP 4: have delete button dissapear when checkbox is unclicked
+// EXPECTED: delete button goes away
+// ACTUAL: delete button stays, and another is added when checkbox is reclicked
 
 const inputButton = document.getElementById('inputButton');
 const inputItem = document.getElementById('inputItem');
@@ -54,7 +58,7 @@ function addButton(li) {
     lineItemButton.setAttribute('src', 'images/delete.png');
     lineItemButton.addEventListener('click', removeElement);
     lineItemButton.style.height = '25px';
-    li.appendChild(lineItemButton)
+    li.appendChild(lineItemButton);
 }
 
 function removeElement(event) {
@@ -66,9 +70,15 @@ function removeElement(event) {
 function handleCheckBox(event, li) {
     event.preventDefault();
     const target = event.target;
-    target.nextSibling.style = target.checked ? 
-    'text-decoration: line-through' : 
-    'text-decoration: none';
-    addButton(li);
+    const activate = target.checked
+    target.nextSibling.style = activate ? 
+    ('text-decoration: line-through', addButton(li)) : 
+    ('text-decoration: none', removeButton(event, lineItemButton));
 }
 
+function removeButton(event, lineItemButton) {
+    event.preventDefault();
+    const trash = event.target;
+    const parent = document.getElementsByClassName('li')
+    trash.parent.removeChild(lineItemButton);
+}
