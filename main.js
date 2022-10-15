@@ -1,21 +1,3 @@
-// description: remove delete button
-
-// STEP 1: create todo item called 'workout'
-// EXPECTED: 'workout' shows up on screen
-// ACTUAL: IT WORKS
-
-//STEP 2: click on box and add strikethrough to 'workout'
-// EXPECTED: strikethrough shows up on 'workout'
-// ACTUAL: IT WORKS
-
-//STEP 3: have delete button show up when checkbox is clicked
-// EXPECTED: delete button should show up to right of 'workout'
-// ACTUAL: IT WORKS
-
-//STEP 4: have delete button dissapear when checkbox is unclicked
-// EXPECTED: delete button goes away
-// ACTUAL: delete button stays, and another is added when checkbox is reclicked
-
 const inputButton = document.getElementById('inputButton');
 const inputItem = document.getElementById('inputItem');
 const form = document.getElementById('form');
