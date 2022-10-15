@@ -55,6 +55,7 @@ function createListItem(itemText) {
 function addButton(li) {
     const listItem = document.createElement('li')
     const lineItemButton = document.createElement('img');
+    lineItemButton.id = 'trash-icon';
     lineItemButton.setAttribute('src', 'images/delete.png');
     lineItemButton.addEventListener('click', removeElement);
     lineItemButton.style.height = '25px';
@@ -71,14 +72,18 @@ function handleCheckBox(event, li) {
     event.preventDefault();
     const target = event.target;
     const activate = target.checked
-    target.nextSibling.style = activate ? 
-    ('text-decoration: line-through', addButton(li)) : 
-    ('text-decoration: none', removeButton(event, lineItemButton));
+    if (activate === true) {
+        target.nextSibling.style.textDecoration = 'line-through';
+        addButton(li)
+    } else {
+        target.nextSibling.style.textDecoration = 'none';
+        removeButton(event, target)
+    }
 }
 
-function removeButton(event, lineItemButton) {
+function removeButton(event, target) {
     event.preventDefault();
     const trash = event.target;
-    const parent = document.getElementsByClassName('li')
-    trash.parent.removeChild(lineItemButton);
+    const trashIcontElement = target.parentElement.querySelector('#trash-icon');
+    target.parentElement.removeChild(trashIcontElement);
 }
