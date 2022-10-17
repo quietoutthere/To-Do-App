@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background-color: lightblue;
     
 }
 
@@ -13,4 +14,34 @@ body {
 
 .button {
     float: right;
+}
+
+.list-container {
+    display: flex;
+    justify-content: center;
+}
+
+#list {
+    width: 30%;
+}
+
+.list-item {
+    list-style-type: none;
+    text-align: left;
+    height: 40px;
+    display: flex;
+}
+
+.item-text {
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+    font-size: 30px;
+}
+
+#trash-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 25px;
 }
