@@ -9,5 +9,5 @@ Use it here [here](https://quietoutthere.github.io/To-Do-App/)
 This was my 3rd project using Java Script. It was an introduction to creating elements, understanding ULs as well as understanding the concept of siblings, and parent nodes.
 
 ## Author
-Evan Oyster - Front End Devloper
+Evan Oyster - Web Developer
 [LinkedIn](https://www.linkedin.com/feed/)
